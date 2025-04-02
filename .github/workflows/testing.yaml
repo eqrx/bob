@@ -17,6 +17,8 @@ jobs:
       pull-requests: write
       contents: write
       issues: write
+      statuses: write
+      actions: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
