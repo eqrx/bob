@@ -16,4 +16,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: outputcheck
-      run: [[ "$(cat input)" == "$(cat output)" ]]
+      run: '[[ "$(cat input)" == "$(cat output)" ]]'
