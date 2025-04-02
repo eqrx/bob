@@ -40,4 +40,6 @@ jobs:
           -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           https://api.github.com/repos/${{ github.repository }}/actions/workflows/testing.yaml/dispatches \
           -d '{ "ref": "${{ github.head_ref }}"}'
+        echo "rerun me"
+        exit 1
 
