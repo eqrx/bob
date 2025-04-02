@@ -20,10 +20,10 @@ jobs:
       with:
         fetch-depth: 0
     - name: outputcheck
-      run: 'echo \'SANE=[[ "$(cat input)" == "$(cat output)" ]]\' >> "$GITHUB_ENV"'
+      run: ./script.sh
     - name: output ok
-      if: env.SANE == 1
+      if: env.SANE == yes
       run: "happy"
     - name: fix
-      if: env.SANE == 0
+      if: env.SANE == no
       run: 'cp input output'
