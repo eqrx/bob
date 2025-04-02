@@ -25,7 +25,7 @@ jobs:
       run: ./script.sh
     - name: output ok
       if: env.SANE == 'yes'
-      run: 'happy'
+      run: echo 'happy'
     - name: fix
       if: env.SANE == 'no'
       run: |
