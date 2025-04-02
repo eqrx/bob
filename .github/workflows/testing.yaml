@@ -14,13 +14,11 @@ concurrency:
 jobs:
   main:
     runs-on: ubuntu-latest
-#    permissions:
-#      actions: write
-#      pull-requests: write
     steps:
     - uses: actions/checkout@v4
       with:
         ref: ${{ github.head_ref }}
+    - run: echo "${{ github.head_ref }}"
     - name: outputcheck
       run: ./script.sh
     - name: output ok
