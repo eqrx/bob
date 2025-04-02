@@ -15,8 +15,9 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.head_ref }}
     - name: outputcheck
       run: ./script.sh
     - name: output ok
@@ -30,4 +31,4 @@ jobs:
         git config --global user.email "testboi[bot]@users.noreply.github.com"
         git add output
         git commit -m "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH"
-        git push origin HEAD:$GITHUB_HEAD_REF
+        git push
