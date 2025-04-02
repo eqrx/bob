@@ -22,8 +22,8 @@ jobs:
     - name: outputcheck
       run: ./script.sh
     - name: output ok
-      if: env.SANE == yes
+      if: env.SANE == "yes"
       run: "happy"
     - name: fix
-      if: env.SANE == no
+      if: env.SANE == "no"
       run: 'cp input output'
