@@ -16,6 +16,7 @@ jobs:
     permissions:
       pull-requests: write
       contents: write
+      issues: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -37,7 +38,7 @@ jobs:
         echo pushing
         git push
         echo close pr
-        curl -v -f -L -X GET \
+        curl -v -f -L -X PATCH \
           -H "Authorization: ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }} \
           -d '{"state":"closed"}'
