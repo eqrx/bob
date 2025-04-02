@@ -19,7 +19,11 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - name: fix
-      run: 'cp input output'
     - name: outputcheck
-      run: '[[ "$(cat input)" == "$(cat output)" ]]'
+      run: 'echo \'SANE=[[ "$(cat input)" == "$(cat output)" ]]\' >> "$GITHUB_ENV"'
+    - name: output ok
+      if: env.SANE == 1
+      run: "happy"
+    - name: fix
+      if: env.SANE == 0
+      run: 'cp input output'
