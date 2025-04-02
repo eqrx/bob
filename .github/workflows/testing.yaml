@@ -38,13 +38,13 @@ jobs:
         git push
         echo "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }}"
         echo close pr
-        curl -f -L -X PATCH \
+        curl -f -L -X POST \
           -H "Accept: application/vnd.github.raw+json" \
           -H "Authorization: ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }} \
           -d '{"state":"closed"}'
         echo open pr
-        curl -f -L -X PATCH \
+        curl -f -L -X POST \
           -H "Accept: application/vnd.github.raw+json" \
           -H "Authorization: ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }} \
