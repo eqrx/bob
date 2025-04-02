@@ -41,12 +41,12 @@ jobs:
         git push
         echo close pr
         curl -v -f -L -X PATCH \
-          -H "Authorization: ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }} \
           -d '{"state":"closed"}'
         echo open pr
         curl -v -f -L -X PATCH \
-          -H "Authorization: ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }} \
           -d '{"state":"open"}'
         echo "rerun me"
