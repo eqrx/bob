@@ -37,7 +37,7 @@ jobs:
         echo pushing
         git push
         echo close pr
-        curl -v -f -L -X PATCH \
+        curl -v -f -L -X GET \
           -H "Authorization: ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }} \
           -d '{"state":"closed"}'
